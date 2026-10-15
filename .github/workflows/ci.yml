@@ -7,7 +7,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Install uv
-        run: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
         with:
           enable_cache: "true"
       - name: setup python
