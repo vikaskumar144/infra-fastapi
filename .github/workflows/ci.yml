@@ -1,0 +1,23 @@
+name: endpoint test
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Install uv
+        run: astral-sh/setup-uv@v6
+        with:
+          enable_cache: "true"
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.14"
+      - name: Install dependencies
+        run: uv sync --locked  --group dev
+      - name: Run tests
+        run: uv run --locked python -m pytest -v
