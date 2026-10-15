@@ -1,9 +1,8 @@
 name: endpoint test
 on:
-  - workflow_dispatch
+  - workflow_dispatch:
   - push:
-      branches:
-        - main
+      branches: [main]
 jobs:
   test:
     runs-on: ubuntu-latest
