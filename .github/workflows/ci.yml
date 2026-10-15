@@ -40,4 +40,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: vikaskumar144/app:latest
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/app:${{ github.sha }}
